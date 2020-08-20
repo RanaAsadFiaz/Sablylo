@@ -1,3 +1,7 @@
+const serverUrl = 'https://main.safetybeat.com';
+
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: `${serverUrl}/safetybeat`,
+  serverUrl: `${serverUrl}`
 };

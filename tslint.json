@@ -88,14 +88,14 @@
     "space-before-function-paren": {
       "options": {
         "anonymous": "never",
-        "asyncArrow": "always",
+        "asyncArrow": "never",
         "constructor": "never",
         "method": "never",
         "named": "never"
       }
     },
     "typedef": [
-      true,
+      false,
       "call-signature"
     ],
     "typedef-whitespace": {
@@ -118,9 +118,9 @@
     },
     "variable-name": {
       "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-pascal-case"
+//        "ban-keywords",
+//        "check-format",
+//        "allow-pascal-case"
       ]
     },
     "whitespace": {

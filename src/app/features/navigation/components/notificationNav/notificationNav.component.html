@@ -1,0 +1,45 @@
+<h4 class="heading">{{helperService.translated.TABLEHEADINGS.NOTIFICATIONS}}</h4>
+<mat-tab-group>
+    <mat-tab label="Direct">
+        <div class="text-center mat-body-strong mat-hint no-data" *ngIf="noMessageData">
+            <mat-icon>{{helperService.appIcons.error}}</mat-icon>
+            <br>
+            <span>No data to show</span>
+        </div>
+        <mat-list role="list">
+            <mat-list-item matRipple role="listitem" class="pointer" *ngFor="let directMessage of directMessages">
+                <h5><a>{{directMessage.type}}</a>
+                    <mat-icon class="clear-notif" (click)="clear(directMessage.id)">clear</mat-icon>
+                    <span *ngIf="!directMessage.read" class="unread-notif"></span>
+                </h5>
+                <p>{{directMessage.message}}</p>
+                <span class="timelog">{{directMessage.time | date:'medium'}}</span>
+            </mat-list-item>
+        </mat-list>
+    </mat-tab>
+    <mat-tab label="Requests">
+        <div class="text-center mat-body-strong mat-hint no-data" *ngIf="noRequestData">
+            <mat-icon>{{helperService.appIcons.error}}</mat-icon>
+            <br>
+            <span>No data to show</span>
+        </div>
+        <mat-list role="list">
+            <div *ngIf="!noRequestData">
+                <mat-list-item role="listitem" *ngFor="let request of requests">
+                    <h5><a>{{request.user.first_name}} {{request.user.last_name}}
+                        {{this.translated.STRINGS.SENT_REQUEST}}</a>
+                        <button mat-mini-fab class="mini-fab float-right" color="primary" type="button"
+                                (click)="confirmConnections(request.user.id)">
+                            <mat-icon>{{helperService.appIcons.done}}</mat-icon>
+                        </button>
+                        <button mat-mini-fab class="mini-fab float-right" color="warn" type="button"
+                                (click)="removeConnections(request.user.id)">
+                            <mat-icon>{{helperService.appIcons.clear}}</mat-icon>
+                        </button>
+                    </h5>
+                    <span class="timelog">{{request.time | date:'medium'}}</span>
+                </mat-list-item>
+            </div>
+        </mat-list>
+    </mat-tab>
+</mat-tab-group>

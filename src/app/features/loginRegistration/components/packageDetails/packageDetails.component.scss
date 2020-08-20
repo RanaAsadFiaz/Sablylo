@@ -1,0 +1,189 @@
+@mixin amte-org-registration-modal($primary, $accent, $warn) {
+  :host,
+  app-org-registration-modal {
+    .topnav {
+      text-align: right;
+      padding: 20px;
+      z-index: 2;
+      position: relative;
+      background-color: mat-color($primary);
+      a {
+        text-decoration: none;
+        padding: 20px;
+        color: #fff;
+        font-size: 14px;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      button {
+        margin-left: 20px;
+      }
+      .sb-logo {
+        width: 160px;
+        float: left;
+        svg {
+          width: 100%;
+          height: auto;
+          fill: #fff;
+        }
+      }
+    }
+    .add-users-input {
+      border: 0;
+      outline: 0 none;
+      width: 140px;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      border-radius: 4px;
+    }
+    .paddingbox {
+      padding: 16px 100px;
+    }
+    .packages-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .package-features {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        li {
+          display: inline-block;
+          padding: 0 1rem !important;
+        }
+        mat-icon {
+          vertical-align: middle;
+          color: mat-color($primary, 500);
+          margin-right: 10px;
+        }
+      }
+    }
+    .pricing-section {
+      display: flex;
+      align-self: flex-start;
+      justify-content: space-evenly;
+      .package-row {
+        display: inline-block;
+        border-radius: 4px;
+        position: relative;
+        align-items: center;
+        width: 33%;
+        margin: 4px;
+        padding: 2rem;
+        &:nth-child(2) {
+          background-color: mat-color($primary);
+          color: #fff;
+        }
+        & > div {
+          padding: 1rem;
+        }
+        h1 {
+          display: inline-block;
+          margin: 0;
+        }
+        p {
+          margin: 0;
+        }
+        .person-count {
+          margin-left: auto;
+        }
+        &.custom {
+
+        }
+      }
+    }
+    .call-to-action {
+      background: mat-color($primary, 500);
+      padding: 4rem 10rem;
+      text-align: center;
+      color: #fff;
+      margin-top: 5rem;
+      [custom-btn] {
+        color: initial;
+      }
+      h1 {
+        font-weight: 500;
+        margin: 0;
+      }
+      p {
+        margin: 10px 0 20px;
+      }
+      a {
+        color: #fff;
+        display: flex;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        text-decoration: none;
+      }
+    }
+    @media (max-width: 576px) {
+      .pricing-section {
+        display: block;
+        .package-row {
+          width: 100% !important;
+          padding: 2rem 0;
+        }
+      }
+    }
+    @media (max-width: 768px) {
+      [fullWidth] {
+        .mat-form-field-infix {
+          width: 100%;
+        }
+      }
+      .packages-wrapper {
+        display: block;
+        .package-box {
+          width: 100%;
+          margin: 10px 0;
+          .package-price {
+            font-size: 1.4rem;
+          }
+        }
+      }
+      .topnav {
+        text-align: center;
+        a {
+          padding: 10px;
+        }
+        .sb-logo {
+          float: none;
+          display: block;
+          margin: 0 auto;
+          text-align: center;
+        }
+      }
+      .call-to-action {
+        padding: 20px;
+        h1 {
+          font-size: 1.4rem;
+        }
+        p {
+          font-size: 14px;
+        }
+      }
+      .paddingbox {
+        padding: 16px;
+      }
+      .mat-card {
+        padding: 0;
+      }
+      .pricing-section {
+        margin-top: 2rem;
+      }
+    }
+    @media (max-width: 992px) {
+      .packages-wrapper {
+        .package-box {
+          .package-price {
+            font-size: 1.4rem;
+          }
+        }
+      }
+    }
+  }
+}
