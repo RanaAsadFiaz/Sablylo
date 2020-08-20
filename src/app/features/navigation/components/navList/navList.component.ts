@@ -8,8 +8,8 @@ import {NavListModel} from 'src/app/models/navigation/navList.model';
 
 @Component({
   selector: 'app-nav-list',
-  templateUrl: './navList.component.html',
-  styleUrls: ['./navList.component.scss']
+  templateUrl: 'navList.component.html',
+  styleUrls: ['navList.component.scss']
 })
 export class NavListComponent {
   @Input() public navLinks: Array<NavItem>;

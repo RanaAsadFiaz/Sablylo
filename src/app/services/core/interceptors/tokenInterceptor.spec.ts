@@ -6,7 +6,6 @@ import {TokenInterceptorService} from './tokenInterceptor';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {AppRoutingModule} from 'src/app/app-routing.module';
 import {createTranslateLoader} from 'src/app/app.module';
-import {ProfileService} from 'src/app/features/profile/services/profile.service';
 import {environment} from 'src/environments/environment';
 import {RouterModule, Router} from '@angular/router';
 import {ConstantService} from 'src/app/services/common/constant/constant.service';
@@ -16,6 +15,7 @@ import {APP_BASE_HREF} from '@angular/common';
 describe('TokenInterceptorService', () => {
   let injector;
   let httpTestingController: HttpTestingController;
+  // tslint:disable-next-line:prefer-const
   let tokenService: TokenInterceptorService;
   let coreService: CoreService;
   let http: HttpClient;
@@ -37,14 +37,13 @@ describe('TokenInterceptorService', () => {
         })
       ],
       providers: [
-        ProfileService,
-        {provide: APP_BASE_HREF, useValue: '/'}
-        // TokenInterceptorService,
-        // {
-        //     provide: HTTP_INTERCEPTORS,
-        //     useClass: TokenInterceptorService,
-        //     multi: true,
-        // }
+        {provide: APP_BASE_HREF, useValue: `/`},
+        TokenInterceptorService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true,
+        }
       ],
     });
     injector = getTestBed();

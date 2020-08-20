@@ -164,6 +164,8 @@ export class ConstantService {
     theme: {
       dark: 'dark-theme',
       light: 'light-theme',
+      darkForest: 'dark-forest',
+      oliveGreen: 'olive-green',
       background: 'body-bg',
       modalClass: 'verify-modal',
       addSiteClass: 'addsite-modal'

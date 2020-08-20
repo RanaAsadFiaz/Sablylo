@@ -1,0 +1,39 @@
+@import "~@angular/material/theming";
+@import "./common.scss";
+@import "~src/app/features/loginRegistration/components/registration/registration.component.scss";
+@import "~src/app/features/loginRegistration/components/login/login.component.scss";
+@import "~src/app/features/loginRegistration/components/forgotPassword/forgotPassword.component.scss";
+@import "~src/app/features/loginRegistration/components/passwordRecovery/passwordRecovery.component.scss";
+@import "~src/app/features/navigation/components/fixedNav/fixedNav.component.scss";
+@import "~src/app/features/navigation/components/navList/navList.component.scss";
+@import "~src/app/features/navigation/components/navigation/navigation.component.scss";
+@import "~src/app/features/navigation/components/notificationNav/notificationNav.component.scss";
+@import "../app/features/core/components/pageNotFound/pageNotFound.component.scss";
+@import "../app/components/toaster/toaster.component.scss";
+@import "../app/dialogs/conformationModal/confirmationModal.component.scss";
+@import "~src/app/features/loginRegistration/components/particleContainer/particleContainer.component.scss";
+@import "../app/features/core/components/particleContainer/particleContainer2.component.scss";
+
+@mixin amte-setTheme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  @include angular-material-theme($theme);
+  @include amte-common($primary, $accent, $warn);
+  @include amte-registration($primary, $accent, $warn);
+  @include amte-login($primary, $accent, $warn);
+  @include amte-forgot-password($primary, $accent, $warn);
+  @include amte-fixed-nav($primary, $accent, $warn);
+  @include amte-nav-list($primary, $accent, $warn);
+  @include amte-navigation($primary, $accent, $warn);
+  @include amte-notificationnav($primary, $accent, $warn);
+  @include amte-notfound($primary, $accent, $warn);
+  @include amte-passwordRecovery($primary, $accent, $warn);
+  @include amte-toaster($primary, $accent, $warn);
+  @include amte-confirmationModal($primary, $accent, $warn);
+  @include amte-particle-container($primary, $accent, $warn);
+  @include amte-particle2Container($primary, $accent, $warn);
+}

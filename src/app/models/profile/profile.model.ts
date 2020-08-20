@@ -1,6 +1,5 @@
 import {FormGroup} from '@angular/forms';
 import {Translation} from '../translate.model';
-import {MatTableDataSource} from '@angular/material';
 import {Subject, Subscription} from 'rxjs';
 import {TeamList} from '../adminControl/myTeam.model';
 import {responseDetails, User} from '../user.model';
@@ -8,6 +7,7 @@ import {EntityInfo} from '../userEntityData.model';
 import {Leaveinfodata, UserLeavesApiResponseData} from '../profile.model';
 import {CalendarEvent} from 'angular-calendar';
 import {PermissionsModel} from '../adminControl/permissions.model';
+import {MatTableDataSource} from '@angular/material/table';
 
 export interface ProfileModel {
   selectedEntitySubscription: Subscription;
@@ -85,12 +85,14 @@ export interface ProfileFeatures {
   changePassword: boolean;
 }
 
+// tslint:disable-next-line:class-name
 export interface recentActivities {
   checkInCheckOut: checkInCheckOut;
   siteData: siteData;
-  duration: string
+  duration: string;
 }
 
+// tslint:disable-next-line:class-name
 export interface checkInCheckOut {
   checkInType: any;
   checkedInAt: any;
@@ -98,9 +100,10 @@ export interface checkInCheckOut {
   checkedOutType: any;
   id: number;
   site: number;
-  user: number
+  user: number;
 }
 
+// tslint:disable-next-line:class-name
 export interface siteData {
   code: string;
   createdBy: number;
@@ -143,12 +146,14 @@ export interface LeaveTypes {
   name: string;
 }
 
+// tslint:disable-next-line:class-name
 export interface myleave {
   id: number;
   name: string;
 }
 
 export interface LeaveDataObject {
+  // tslint:disable-next-line:ban-types
   actions: Object;
   approved: boolean;
   end: string;
@@ -160,8 +165,8 @@ export interface LeaveDataObject {
 }
 
 export interface LeavesData {
-  leaveTypes: Array<myleave>,
-  currentData: LeaveDataObject
+  leaveTypes: Array<myleave>;
+  currentData: LeaveDataObject;
 }
 
 export interface UserCountData {

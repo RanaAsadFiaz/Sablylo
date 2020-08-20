@@ -14,7 +14,9 @@ export class LoginRegistrationService {
   profileData = this.userData.asObservable();
   apiRoutes: any;
   method: { get: string; post: string; put: string; delete: string; };
+  // tslint:disable-next-line:variable-name
   public ForgotPassword$: Observable<ForgotPasswordResponse>;
+  // tslint:disable-next-line:variable-name
   public Login$: Observable<LoginResponse>;
 
   constructor(public helperService: HelperService) {
@@ -76,6 +78,7 @@ export class LoginRegistrationService {
    * @params OrgName
    */
 
+  // tslint:disable-next-line:variable-name
   checkOrgName(OrgName: object) {
     return this.helperService.requestCall(this.method.post, this.apiRoutes.checkOrgName, OrgName);
   }
@@ -86,6 +89,7 @@ export class LoginRegistrationService {
    * @params OrgBillingEmail
    */
 
+  // tslint:disable-next-line:variable-name
   checkOrgBillingEmail(OrgBillingEmail: object) {
     return this.helperService.requestCall(this.method.post, this.apiRoutes.checkBilling, OrgBillingEmail);
   }

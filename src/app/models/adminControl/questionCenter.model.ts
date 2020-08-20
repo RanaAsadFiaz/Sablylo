@@ -1,9 +1,9 @@
 import {FormGroup} from '@angular/forms';
 import {Translation} from '../translate.model';
-import {MatTableDataSource} from '@angular/material';
 import {PermissionsModel} from './permissions.model';
 import {responseDetails} from '../user.model';
 import {Subscription} from 'rxjs';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 export class QuestionCenter {
@@ -19,7 +19,7 @@ export class QuestionCenter {
   filteredChildYesQuestion: Array<Questions>;
   pageSize: number;
   parentPageCount: number;
-  entityPageCount: number
+  entityPageCount: number;
   questionBankPageCount: number;
   dataSource: MatTableDataSource<Questions>;
   canProceed: boolean;
@@ -51,7 +51,7 @@ export interface QuestionsData {
   pageCount: number;
   parentQuestions: Questions[];
   childQuestions: Questions[];
-  questionList: Questions[]
+  questionList: Questions[];
 }
 
 export interface Questions {
@@ -62,7 +62,7 @@ export interface Questions {
   entity: number;
   parent: boolean;
   safe: string;
-  warning: string
+  warning: string;
 }
 
 export interface EntityQuestionResponse {
@@ -70,7 +70,7 @@ export interface EntityQuestionResponse {
     pageCount: number;
     entityQuestionList: Array<EntityQuestion>
   };
-  responseDetails: responseDetails
+  responseDetails: responseDetails;
 }
 
 export interface EntityQuestion {
@@ -80,7 +80,7 @@ export interface EntityQuestion {
   childNo: Questions;
   childYesSafe: boolean;
   childNoSafe: boolean;
-  entity: number
+  entity: number;
 }
 
 export interface AllQuestionsApiResponse {
@@ -88,7 +88,7 @@ export interface AllQuestionsApiResponse {
     pageCount: number;
     questionList: Array<Questions>
   };
-  responseDetails: responseDetails
+  responseDetails: responseDetails;
 }
 
 export interface GenerateQuestionData {

@@ -13,10 +13,6 @@ import {CompilerProvider} from 'src/app/services/common/compiler/compiler';
 import {ForgotPasswordComponent} from './components/forgotPassword/forgotPassword.component';
 import {ParticleContainerComponent} from './components/particleContainer/particleContainer.component';
 import {PasswordRecoveryComponent} from './components/passwordRecovery/passwordRecovery.component';
-import {PackageDetailsComponent} from './components/packageDetails/packageDetails.component';
-import {UpdateprofileComponent} from './components/updateprofile/updateprofile.component';
-import {NgxStripeModule} from 'ngx-stripe';
-import {SettingsModule} from '../settings/settings.module';
 
 @NgModule({
   imports: [
@@ -25,8 +21,6 @@ import {SettingsModule} from '../settings/settings.module';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxStripeModule,
-    SettingsModule
   ],
   declarations: [
     LoginComponent,
@@ -34,8 +28,6 @@ import {SettingsModule} from '../settings/settings.module';
     ForgotPasswordComponent,
     ParticleContainerComponent,
     PasswordRecoveryComponent,
-    PackageDetailsComponent,
-    UpdateprofileComponent
   ],
   providers: [
     LoginRegistrationService,

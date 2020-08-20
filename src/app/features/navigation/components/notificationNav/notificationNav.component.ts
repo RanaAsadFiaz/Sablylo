@@ -8,8 +8,8 @@ import {SubSink} from 'subsink';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'app-notificationNav',
-  templateUrl: './notificationNav.component.html',
-  styleUrls: ['./notificationNav.component.scss']
+  templateUrl: 'notificationNav.component.html',
+  styleUrls: ['notificationNav.component.scss']
 })
 export class NotificationNavComponent implements OnInit {
   @Output() notificationCount = new EventEmitter();

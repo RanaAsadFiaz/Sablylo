@@ -5,7 +5,6 @@ import {Translation} from 'src/app/models/translate.model';
 import {ConstantService} from 'src/app/services/common/constant/constant.service';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
-import {NotifierService} from 'angular-notifier';
 import {catchError} from 'rxjs/operators';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {BehaviorSubject, Observable, throwError} from 'rxjs';
@@ -58,7 +57,6 @@ export class HelperService {
     public dialog: MatDialog,
     private cookies: CookieService,
     private router: Router,
-    private notifier: NotifierService,
     private ngZone: NgZone,
     private breakpointObserver: BreakpointObserver
   ) {
@@ -141,7 +139,7 @@ export class HelperService {
    */
 
   hideLoggers(): void {
-    this.notifier.hideAll();
+    // this.notifier.hideAll();
   }
 
   /**
@@ -151,7 +149,7 @@ export class HelperService {
    */
 
   appLogger(type: string, message: any): void {
-    this.notifier.notify(type, message);
+    // this.notifier.notify(type, message);
   }
 
   /**
@@ -162,7 +160,7 @@ export class HelperService {
 
   appLoggerDev(type: string, message: any): void {
     if (this.constants.config.devMode) {
-      this.notifier.notify(type, message);
+      // this.notifier.notify(type, message);
     }
   }
 
@@ -430,25 +428,27 @@ export class HelperService {
   get appIcons() {
     return this.constants.appIcons;
   }
-
-  /**
-   * Encrypt through Crypto JS
-   * param data
-   * param key
-   */
+  //
+  // /**
+  //  * Encrypt through Crypto JS
+  //  * param data
+  //  * param key
+  //  */
+  // @ts-ignore
   encrypt(data: string, key: string): string {
-    return CryptoJS.DES.encrypt(data, key).toString();
+  //   return CryptoJS.DES.encrypt(data, key).toString();
   }
-
-  /**
-   * this function is used for descrpting the data using crypto JS.
-   * @params data
-   * @params key
-   */
-
+  //
+  // /**
+  //  * this function is used for descrpting the data using crypto JS.
+  //  * @params data
+  //  * @params key
+  //  */
+  //
+  // @ts-ignore
   decrypt(data: string, key: string): string {
-    return CryptoJS.DES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
-
+  //   return CryptoJS.DES.decrypt(data, key).toString(CryptoJS.enc.Utf8);
+  //
   }
 
   /**
@@ -500,12 +500,13 @@ export class HelperService {
     return isEmpty;
   }
 
+  // @ts-ignore
   getEntityId(): number {
-    if (localStorage.getItem(this.constants.localStorageKeys.entityId)) {
-      return JSON.parse(this.decrypt
-      (localStorage.getItem(this.constants.localStorageKeys.entityId),
-        this.appConstants.key));
-    }
+    // if (localStorage.getItem(this.constants.localStorageKeys.entityId)) {
+    //   return JSON.parse(this.decrypt
+    //   (localStorage.getItem(this.constants.localStorageKeys.entityId),
+    //     this.appConstants.key));
+    // }
 
   }
 

@@ -5,8 +5,8 @@ import { OverlayContainer} from '@angular/cdk/overlay';
 
 @Component({
     selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss'],
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
     // host: { '[class]': 'selectedTheme' }
 })
 export class AppComponent implements OnInit {

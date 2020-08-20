@@ -4,8 +4,8 @@ import {HelperService} from 'src/app/services/common/helperService/helper.servic
 
 @Component({
   selector: 'app-particle-container',
-  templateUrl: './particleContainer.component.html',
-  styleUrls: ['./particleContainer.component.scss']
+  templateUrl: 'particleContainer.component.html',
+  styleUrls: ['particleContainer.component.scss']
 })
 export class ParticleContainerComponent {
   translated: Translation;

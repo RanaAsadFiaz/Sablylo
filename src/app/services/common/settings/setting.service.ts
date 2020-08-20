@@ -7,7 +7,7 @@ import {ConstantService} from 'src/app/services/common/constant/constant.service
 })
 export class SettingService {
   themeKey = ConstantService.localStorageKeys.theme;
-  themeLight = ConstantService.config.theme.light;
+  themeLight = ConstantService.config.theme.dark;
   // tslint:disable-next-line:ban-types
   private theme: BehaviorSubject<String>;
 

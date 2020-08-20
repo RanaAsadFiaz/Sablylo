@@ -14,12 +14,12 @@ const phoneNumberUtil = HelperService.getPhoneNumberUtil();
 
 @Component({
   selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  templateUrl: 'registration.component.html',
+  styleUrls: ['registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
   @ViewChild('gmap') gMapElement: ElementRef;
-  registerObj: RegistrationComp = <RegistrationComp>{};
+  registerObj: RegistrationComp = {} as RegistrationComp;
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({matches}) => {
@@ -198,7 +198,8 @@ export class RegistrationComponent implements OnInit {
    * this function is used for registering the user against all the details that the user has entered.
    */
   registration() {
-    let orgForm = this.registerObj.organizationForm.value, userForm = this.registerObj.userForm.value;
+    // tslint:disable-next-line:one-variable-per-declaration
+    const orgForm = this.registerObj.organizationForm.value, userForm = this.registerObj.userForm.value;
     this.registerObj.loading = true;
     this.registerObj.organizationData = this.compiler.constructOrgdata(orgForm, userForm, this.registerObj);
     this.registerObj.registerData = this.compiler.constructRegUserdata(this.registerObj, userForm);
@@ -226,7 +227,7 @@ export class RegistrationComponent implements OnInit {
       }
     }, (error) => {
       this.registerObj.loading = false;
-      this.helperService.createSnack(this.helperService.translated.MESSAGES.ERROR_MSG, this.helperService.constants.status.ERROR)
+      this.helperService.createSnack(this.helperService.translated.MESSAGES.ERROR_MSG, this.helperService.constants.status.ERROR);
     });
   }
 

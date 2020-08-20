@@ -13,8 +13,8 @@ import {SubSink} from 'subsink';
 
 @Component({
   selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss'],
+  templateUrl: 'navigation.component.html',
+  styleUrls: ['navigation.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class NavigationComponent implements OnInit, OnDestroy {

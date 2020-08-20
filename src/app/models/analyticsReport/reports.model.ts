@@ -1,9 +1,9 @@
 import {FormGroup} from '@angular/forms';
 import {Subscription} from 'rxjs';
-import {MatTableDataSource} from '@angular/material';
 import {FilterModel} from 'src/app/models/filter.model';
 import {User} from '../user.model';
 import {Site} from 'src/app/models/site.model';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 export interface Report {
@@ -60,79 +60,79 @@ export interface ActionReportApiData {
 }
 
 export interface HighChartType {
-  type: string,
-  title: string,
-  subtitle: string,
-  inverted: boolean
+  type: string;
+  title: string;
+  subtitle: string;
+  inverted: boolean;
 }
 
 export interface ActionReportData {
-  date: string,
-  checkins: number,
-  checkouts: number,
-  pulse: number
+  date: string;
+  checkins: number;
+  checkouts: number;
+  pulse: number;
 
 }
 
 export interface ActivityData {
-  result: Array<Report>,
-  type: string,
-  totalCount: number
+  result: Array<Report>;
+  type: string;
+  totalCount: number;
 }
 
 export interface CompliantData {
-  result: Array<Report>,
-  totalCount: number
+  result: Array<Report>;
+  totalCount: number;
 }
 
 export interface Report {
-  date: string,
-  count: number
+  date: string;
+  count: number;
 }
 
 export interface HazardReportData {
-  date: string,
-  minor: number,
-  moderate: number,
-  major: number,
-  extreme: number,
+  date: string;
+  minor: number;
+  moderate: number;
+  major: number;
+  extreme: number;
 }
 
 
 export interface HazardReportByStatusData {
-  minorResolved: number,
-  majorResolved: number,
-  moderateResolved: number,
-  extremeResolved: number,
-  minorUnResolved: number,
-  majorUnResolved: number,
-  moderateUnResolved: number,
-  extremeUnResolved: number,
-  resolved: number,
-  unResolved: number,
-  minor: number,
-  moderate: number,
-  major: number,
-  extreme: number,
-  totalHazards: number
+  minorResolved: number;
+  majorResolved: number;
+  moderateResolved: number;
+  extremeResolved: number;
+  minorUnResolved: number;
+  majorUnResolved: number;
+  moderateUnResolved: number;
+  extremeUnResolved: number;
+  resolved: number;
+  unResolved: number;
+  minor: number;
+  moderate: number;
+  major: number;
+  extreme: number;
+  totalHazards: number;
 }
 
 export interface SiteReportData {
-  siteName: string,
-  siteCheckIns: number,
-  siteCheckOuts: number
+  siteName: string;
+  siteCheckIns: number;
+  siteCheckOuts: number;
 }
 
 export interface SiteDetailsReport {
-  date: string,
-  siteCheckIns: number,
-  siteCheckOuts: number
+  date: string;
+  siteCheckIns: number;
+  siteCheckOuts: number;
 }
 
 export interface AverageDailyActionReport {
-  user: string,
-  averageCheckIn: string,
-  averageCheckOut: string,
-  averageDuration: string
+  user: string;
+  averageCheckIn: string;
+  averageCheckOut: string;
+  averageDuration: string;
 }
 

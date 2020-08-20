@@ -1,8 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material';
 import {HelperService} from 'src/app/services/common/helperService/helper.service';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-imageLightbox',
   templateUrl: './imageLightbox.component.html',
   styleUrls: ['./imageLightbox.component.scss']

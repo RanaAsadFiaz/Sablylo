@@ -9,12 +9,13 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'app-passwordRecovery',
-  templateUrl: './passwordRecovery.component.html',
-  styleUrls: ['./passwordRecovery.component.scss']
+  templateUrl: 'passwordRecovery.component.html',
+  styleUrls: ['passwordRecovery.component.scss']
 })
 export class PasswordRecoveryComponent implements OnInit {
-  passRecoveryObj: PasswordRecovery = <PasswordRecovery>{};
+  passRecoveryObj: PasswordRecovery = {} as PasswordRecovery;
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({matches}) => {
@@ -89,10 +90,10 @@ export class PasswordRecoveryComponent implements OnInit {
       this.helperService.createSnack(this.helperService.translated.AUTH.PASSWORD_REQ, this.helperService.translated.LOGGER.STATUS.ERROR);
       return;
     }
-    let data = {
-      'password': value.password1,
-      'uid': this.passRecoveryObj.data.uid,
-      'token': this.passRecoveryObj.data.token
+    const data = {
+      password: value.password1,
+      uid: this.passRecoveryObj.data.uid,
+      token: this.passRecoveryObj.data.token
     };
 
     this.resetServices.resetPassword(data).subscribe((res) => {

@@ -1,0 +1,687 @@
+@import "./imports.scss";
+
+$primary-pallet: (
+  50 : #e1e7ec,
+  100 : #b5c3d0,
+  200 : #839bb1,
+  300 : #517392,
+  400 : #2c557a,
+  500 : #073763,
+  600 : #06315b,
+  700 : #052a51,
+  800 : #042347,
+  900 : #021635,
+  A100 : #6d97ff,
+  A200 : #3a73ff,
+  A400 : #074fff,
+  A700 : #0044ec,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+$secondary-pallet: (
+  50: #e1ecef,
+  100: #b4d1d8,
+  200: #82b2be,
+  300: #5093a3,
+  400: #2b7b90,
+  500: #05647c,
+  600: #045c74,
+  700: #045269,
+  800: #03485f,
+  900: #01364c,
+  A100: #80d2ff,
+  A200: #4dc1ff,
+  A400: #1aafff,
+  A700: #00a6ff,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white
+  )
+);
+$gray-pallete: (
+  50: #fafafa,
+  100: #f5f5f5,
+  200: #eeeeee,
+  300: #e0e0e0,
+  400: #bdbdbd,
+  500: #9e9e9e,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  A100: #82b1ff,
+  A200: #448aff,
+  A400: #2979ff,
+  A700: #2962ff,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white
+  )
+);
+$theme-background: (
+  status-bar: white,
+  app-bar: mat-color($primary-pallet, 600),
+  background: mat-color($primary-pallet, 600),
+  hover: rgba(white, 0.05),
+  card: mat-color($primary-pallet, 500),
+  dialog: mat-color($primary-pallet, 600),
+  disabled-button: $white-12-opacity,
+  raised-button: mat-color($primary-pallet, 600),
+  focused-button: $white-6-opacity,
+  selected-button: mat-color($primary-pallet, 900),
+  selected-disabled-button: mat-color($primary-pallet, 800),
+  disabled-button-toggle: black,
+  unselected-chip: mat-color($primary-pallet, 700),
+  disabled-list-option: black,
+  focus: white
+);
+$theme-foreground: (
+  base: white,
+  divider: mat-color($primary-pallet, 50),
+  dividers: mat-color($primary-pallet, 50),
+  disabled: white,
+  disabled-button: white,
+  disabled-text: white,
+  hint-text: white,
+  secondary-text: white,
+  icon: white,
+  icons: white,
+  text: white,
+  slider-min: white,
+  slider-off: white,
+  slider-off-active: white
+);
+@function createTheme($primary, $secondary, $warn) {
+  @return (
+    primary: $primary,
+    accent: $secondary,
+    warn: $warn,
+    is-dark: false,
+    foreground: $theme-foreground,
+    background: $theme-background
+  );
+}
+
+$primary: mat-palette($primary-pallet);
+$secondary: mat-palette($secondary-pallet);
+$warn: mat-palette($mat-red);
+$theme: createTheme($primary, $secondary, $warn);
+.dark-theme {
+  .package-row {
+    background-color: mat-color($primary, 400);
+  }
+
+  app-package-settings {
+    .package-features {
+      ul {
+        mat-icon {
+          color: inherit !important;
+        }
+      }
+    }
+
+    .sb-packages {
+      .package-box {
+        .price {
+          span {
+            color: #fff !important;
+          }
+        }
+
+        &.active {
+          background-color: mat-color($primary, 400) !important;
+        }
+
+        &.expired:before {
+          background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .content {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .cal-month-view {
+    .cal-cell-row:hover,
+    .cal-cell:hover {
+      background-color: mat-color($primary, 400);
+    }
+
+    .cal-day-cell.cal-today {
+      background-color: mat-color($primary, 300);
+    }
+  }
+
+  .data-filter {
+    mat-icon {
+      background-color: mat-color($primary-pallet, 300);
+    }
+
+    .input-wrap {
+      background-color: transparent;
+      border: 1px solid rgba(204, 204, 204, 0.13);
+    }
+
+    .search-input {
+      caret-color: #fff !important;
+      color: #fff;
+    }
+  }
+
+  .spinner-wrap {
+    background-color: rgba(255, 255, 255, 0.1);
+
+    .mat-progress-spinner {
+      circle {
+        stroke: mat-color($primary-pallet, 50);
+      }
+    }
+  }
+
+  .loginbox,
+  app-modal-dialog {
+    .mat-form-field.mat-focused {
+      .mat-form-field-label {
+        color: #fff !important;
+      }
+    }
+  }
+
+  app-notificationNav {
+    mat-list-item[role="listitem"] {
+      border-bottom: 1px solid rgba(221, 221, 221, 0.2) !important;
+
+      .unread-notif {
+        background: mat-color($primary-pallet, 400);
+      }
+
+      .read-notif {
+        background: mat-color($primary-pallet, 100);
+      }
+    }
+  }
+
+  .file-uploader {
+    .fake-uploader {
+      color: #fff;
+    }
+  }
+
+  mat-dialog-container {
+    mat-card-title {
+      background-color: mat-color($primary, 400);
+    }
+  }
+
+  app-login,
+  app-forgot-password {
+    .mat-figure {
+      //background-color: mat-color($primary, 400) !important;
+    }
+  }
+
+  .monogram {
+    border-color: mat-color($primary, 400) !important;
+  }
+
+  a {
+    color: mat-color($primary, 50);
+  }
+
+  .mat-drawer-container {
+    background-color: mat-color($primary, 600) !important;
+  }
+
+  .mat-horizontal-stepper {
+    background-color: mat-color($primary, 800) !important;
+  }
+
+  .pagehead {
+    background-color: mat-color($primary, 700) !important;
+  }
+
+  .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #fff !important;
+  }
+
+  .mat-pseudo-checkbox-checked {
+    background: #fff !important;
+  }
+
+  .mat-menu-panel,
+  .mat-dialog-container,
+  .mat-drawer {
+    background-color: mat-color($primary, 500) !important;
+  }
+
+  &.body-bg {
+    background-color: mat-color($primary, 700);
+  }
+
+  .sideLegend {
+    &:after {
+      background: mat-color($primary, 300);
+    }
+  }
+
+  .topbar,
+  .mini-sidenav {
+    background-color: mat-color($primary, 900) !important;
+    color: #fff !important;
+  }
+
+  .mini-sidenav,
+  mat-nav-list {
+    .nav-link {
+      color: #fff !important;
+    }
+  }
+
+  .midbox:before {
+    background-color: mat-color($warn);
+  }
+
+  .mat-horizontal-content-container {
+    padding: 0 !important;
+  }
+
+  .btn-grids {
+    a {
+      background-color: mat-color($primary, 600);
+      border-color: mat-color($primary, 600) !important;
+
+      mat-icon {
+        background: mat-color($primary, 400) !important;
+        color: #fff !important;
+      }
+    }
+  }
+
+  .customTable {
+    .mat-header-row {
+      background-color: mat-color($primary, 800);
+    }
+
+    .mat-header-cell,
+    .mat-cell {
+      border-bottom-color: mat-color($primary, 400);
+      color: #fff !important;
+    }
+  }
+
+  .number-input {
+    input {
+      border-color: #3d484d;
+      background-color: transparent;
+      color: #fff;
+    }
+
+    span {
+      border-color: #3d484d !important;
+    }
+  }
+
+  .mat-icon.mat-primary {
+    color: #fff !important;
+  }
+
+  app-settings {
+    .settings-parent {
+      background: transparent !important;
+    }
+
+    .navigator {
+      mat-list-item {
+        span {
+          color: #fff !important;
+
+          &:hover,
+          &.settingNav {
+            border-color: mat-color($primary-pallet, 50);
+          }
+        }
+      }
+    }
+
+    .settings-wrap {
+      .mat-list-item {
+        border-color: mat-color($primary-pallet, 400) !important;
+      }
+    }
+  }
+
+  .activity-card {
+    &:before {
+      background-color: #fff;
+    }
+  }
+
+  .infoTitle {
+    background-color: mat-color($primary-pallet, 800);
+  }
+
+  app-ImportSiteModal {
+    .site-note {
+      background-color: mat-color($primary, 400);
+    }
+  }
+
+  app-ViewSite {
+    .pagehead {
+      height: auto !important;
+      padding: 10px 16px !important;
+
+      .siteicon {
+        font-size: 75px;
+        opacity: 0.2;
+        display: block;
+        width: 60px;
+        line-height: 0.4;
+        color: mat-color($primary, 500);
+      }
+
+      .user-info {
+        padding: 30px;
+        width: 100%;
+        text-transform: capitalize;
+
+        p {
+          margin: 0;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .mat-figure {
+      align-items: normal;
+    }
+
+    .dashboard-card {
+      padding: 0;
+      width: 100%;
+
+      table {
+        width: 100%;
+      }
+
+      mat-card-content {
+        height: 100% !important;
+      }
+
+      .siteinfo-row {
+        clear: both;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 15px 10px 5px;
+
+        mat-icon {
+          box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.2);
+          border-radius: 100px;
+          margin: 0 10px 0 0;
+          padding: 5px;
+          color: mat-color($primary, 500);
+        }
+
+        p {
+          margin: 10px 0;
+          flex-basis: 100%;
+        }
+
+        &:last-child {
+          border: 0;
+        }
+      }
+
+      .infoTitle {
+        color: #fff;
+        border-radius: 4px 4px 0 0;
+        padding: 10px 16px;
+        align-items: center;
+        height: 30px;
+
+        mat-card-title {
+          font-size: 16px;
+          margin: 0;
+        }
+
+        .mat-card-header-text {
+          margin: 0;
+          width: 100%;
+        }
+
+        &:before {
+          content: "";
+          display: block;
+          width: 30px;
+          height: 3px;
+          border-radius: 100px;
+          float: left;
+          margin-right: 8px;
+          background: #fff;
+        }
+      }
+
+      mat-list {
+        padding-top: 0;
+      }
+
+      .mat-list-item {
+        font-size: 14px;
+      }
+
+      .activity-card {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 4px;
+        position: relative;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          width: 100%;
+          z-index: 0;
+          top: 0;
+          height: 100%;
+          opacity: 0.05;
+        }
+
+        .row {
+          margin: 0 0 10px;
+          position: relative;
+          z-index: 1;
+
+          span {
+            float: right;
+          }
+
+          a {
+            text-decoration: none;
+
+            mat-icon {
+              height: auto;
+              width: auto;
+              display: inline-block;
+              line-height: 0;
+              top: 6px;
+              position: relative;
+            }
+          }
+        }
+      }
+
+      .header-btn {
+        color: #fff;
+        font-size: 12px;
+        text-decoration: none;
+        padding: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        display: block;
+        width: 150px;
+        text-align: center;
+        border-radius: 4px;
+
+        &:hover {
+          border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      tr.mat-row,
+      tr.mat-header-row {
+        height: 35px;
+      }
+
+      .mat-paginator-page-size {
+        display: none;
+      }
+
+      .mat-paginator-container {
+        min-height: auto;
+      }
+
+      &.activities {
+        mat-card-content {
+          height: 550px;
+          overflow: auto;
+        }
+      }
+    }
+
+    .profile-form {
+      .mat-input-element {
+        background-color: transparent;
+        border: 0;
+
+        &.active {
+          outline: 0 none;
+          color: inherit;
+        }
+      }
+    }
+
+    .mat-card {
+      background: transparent;
+    }
+  }
+
+  // Styling for native elements
+
+  .mat-input-element {
+    caret-color: #fff !important;
+  }
+
+  .mat-form-field.mat-focused {
+    .mat-form-field-label,
+    .mat-form-field-required-marker {
+      color: #fff !important;
+    }
+
+    .mat-form-field-underline {
+      .mat-form-field-ripple {
+        background-color: mat-color($primary, 300);
+      }
+    }
+  }
+
+  td.mat-cell,
+  th.mat-header-cell {
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  app-profile {
+    .mat-header-row {
+      background-color: mat-color($primary, 400) !important;
+    }
+
+    .navigator {
+      mat-list-item {
+        mat-icon {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+  .customTable.modal {
+    .mat-header-row {
+      .mat-header-cell {
+        color: #fff;
+      }
+    }
+  }
+
+  .entity-code {
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.25) !important;
+  }
+
+  app-ViewSite {
+    .dashboard-card {
+      .activity-card {
+        background-color: mat-color($primary, 400);
+      }
+    }
+
+    .siteicon {
+      opacity: 1 !important;
+    }
+  }
+
+  app-questionCenter {
+    .list,
+    .list-item {
+      background: transparent !important;
+      border-color: mat-color($primary, 400) !important;
+    }
+
+    .container {
+      h4 {
+        background-color: mat-color($primary, 800);
+      }
+    }
+  }
+
+  @include amte-setTheme($theme);
+}

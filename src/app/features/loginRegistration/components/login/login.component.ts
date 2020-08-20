@@ -4,7 +4,6 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {LoginRegistrationService} from 'src/app/features/loginRegistration/services/LoginRegistrationService';
 import {loginCredentials, LoginResponse, PackageInfo} from 'src/app/models/user.model';
 import {CompilerProvider} from 'src/app/services/common/compiler/compiler';
-import {AdminControlService} from 'src/app/features/adminControl/services/adminControl.service';
 import {NavigationService} from 'src/app/features/navigation/services/navigation.service';
 import {HelperService} from 'src/app/services/common/helperService/helper.service';
 import {Login} from 'src/app/models/loginRegistration/login.model';
@@ -15,10 +14,10 @@ import {EntityUserData} from 'src/app/models/userEntityData.model';
 @Component({
   templateUrl: 'login.component.html',
   selector: 'app-login',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginObj: Login = <Login>{};
+  loginObj: Login = {} as Login;
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({matches}) => {
@@ -43,7 +42,6 @@ export class LoginComponent implements OnInit {
     public helperService: HelperService,
     private compiler: CompilerProvider,
     private breakpointObserver: BreakpointObserver,
-    private adminService: AdminControlService,
     private navService: NavigationService
   ) {
     localStorage.clear();
@@ -99,33 +97,34 @@ export class LoginComponent implements OnInit {
           data ? this.loginService.setToken(this.loginObj.data.data.token) : this.loginService.setToken('');
           this.loginObj.userData = this.compiler.constructUserData(this.loginObj.data);
           this.navService.updateCurrentUser(this.loginObj.userData.user);
-          let self = this;
-          this.loginObj.index = this.helperService.findIndex(this.loginObj.userData.packageInfo, function (packageVal: PackageInfo) {
+          const self = this;
+          // tslint:disable-next-line:only-arrow-functions
+          this.loginObj.index = this.helperService.findIndex(this.loginObj.userData.packageInfo, function(packageVal: PackageInfo) {
             return packageVal.module === self.helperService.appConstants.moduleName;
           });
           this.navService.updatePackageInfo(this.loginObj.userData.packageInfo[this.loginObj.index]);
           localStorage.setItem(this.helperService.constants.localStorageKeys.packageInfo,
             this.helperService.encrypt(JSON.stringify(this.loginObj.userData.packageInfo),
               this.helperService.appConstants.key).toString()); // Store package data in local storage
-          let entityData = {
-            'moduleName': this.helperService.appConstants.moduleName
+          const entityData = {
+            moduleName: this.helperService.appConstants.moduleName
           };
-          this.adminService.viewEntities(entityData).subscribe((res) => {
-            if (res && res.responseDetails.code === this.helperService.appConstants.codeValidations[0]) {
-              this.loginObj.entities = res;
-              this.loginObj.entityUserData = this.compiler.constructUserEntityData(this.loginObj.entities.data.allEntities);
-              this.navService.changeEntites(this.loginObj.entityUserData);
-              this.permissionBasedNavigation(this.loginObj.entityUserData,
-                this.loginObj.userData.packageInfo[this.loginObj.index].expired, this.loginObj.data);
-              this.loginObj.loading = false;
-            } else {
-              this.loginObj.loading = false;
-              this.helperService.createSnack(res.responseDetails.message, this.helperService.constants.status.ERROR);
-            }
-          }, (err) => {
-            this.loginObj.loading = false;
-            this.helperService.createSnack(this.helperService.translated.MESSAGES.ERROR_MSG, this.helperService.constants.status.ERROR);
-          });
+          // this.adminService.viewEntities(entityData).subscribe((res) => {
+          //   if (res && res.responseDetails.code === this.helperService.appConstants.codeValidations[0]) {
+          //     this.loginObj.entities = res;
+          //     this.loginObj.entityUserData = this.compiler.constructUserEntityData(this.loginObj.entities.data.allEntities);
+          //     this.navService.changeEntites(this.loginObj.entityUserData);
+          //     this.permissionBasedNavigation(this.loginObj.entityUserData,
+          //       this.loginObj.userData.packageInfo[this.loginObj.index].expired, this.loginObj.data);
+          //     this.loginObj.loading = false;
+          //   } else {
+          //     this.loginObj.loading = false;
+          //     this.helperService.createSnack(res.responseDetails.message, this.helperService.constants.status.ERROR);
+          //   }
+          // }, (err) => {
+          //   this.loginObj.loading = false;
+          //   this.helperService.createSnack(this.helperService.translated.MESSAGES.ERROR_MSG, this.helperService.constants.status.ERROR);
+          // });
         } else if (data && data.responseDetails.code === this.helperService.appConstants.codeValidations[1]) {
           this.helperService.createSnack(
             data.responseDetails.message,
@@ -159,7 +158,8 @@ export class LoginComponent implements OnInit {
       if (data.entities.length === 0) {
         this.router.navigate(['welcomeScreen/entityCreation']);
       } else {
-        let index = this.helperService.findIndex(data.entities, function (entity) {
+        // tslint:disable-next-line:only-arrow-functions
+        const index = this.helperService.findIndex(data.entities, function(entity) {
           return entity.active === true;
         });
         this.loginObj.selectedEntity = index !== -1 ? data.entities[index] : data.entities[0];

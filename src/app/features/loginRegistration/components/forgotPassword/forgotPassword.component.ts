@@ -9,8 +9,8 @@ import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-forgot-password',
-  templateUrl: './forgotPassword.component.html',
-  styleUrls: ['./forgotPassword.component.scss']
+  templateUrl: 'forgotPassword.component.html',
+  styleUrls: ['forgotPassword.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
   forgotPassObj: ForgotPasswordComp = <ForgotPasswordComp>{};

@@ -1,0 +1,222 @@
+@import "./imports.scss";
+
+$primary-pallet: (
+        50: #e1ecef,
+        100: #b4d1d8,
+        200: #82b2be,
+        300: #5093a3,
+        400: #2b7b90,
+        500: #05647c,
+        600: #045c74,
+        700: #045269,
+        800: #03485f,
+        900: #01364c,
+        A100: #80d2ff,
+        A200: #4dc1ff,
+        A400: #1aafff,
+        A700: #00a6ff,
+        contrast: (
+                50: #000000,
+                100: #000000,
+                200: #000000,
+                300: #000000,
+                400: #ffffff,
+                500: #ffffff,
+                600: #ffffff,
+                700: #ffffff,
+                800: #ffffff,
+                900: #ffffff,
+                A100: #000000,
+                A200: #000000,
+                A400: #000000,
+                A700: #ffffff
+        )
+);
+$secondary-pallet: (
+        50: #e1ecef,
+        100: #b4d1d8,
+        200: #82b2be,
+        300: #5093a3,
+        400: #2b7b90,
+        500: #05647c,
+        600: #045c74,
+        700: #045269,
+        800: #03485f,
+        900: #01364c,
+        A100: #80d2ff,
+        A200: #4dc1ff,
+        A400: #1aafff,
+        A700: #00a6ff,
+        contrast: (
+                50: #000000,
+                100: #000000,
+                200: #000000,
+                300: #ffffff,
+                400: #ffffff,
+                500: #ffffff,
+                600: #ffffff,
+                700: #ffffff,
+                800: #ffffff,
+                900: #ffffff,
+                A100: #000000,
+                A200: #000000,
+                A400: #ffffff,
+                A700: #ffffff
+        )
+);
+$warn-pallete: (
+        50: #fae6e6,
+        100: #f2c1c1,
+        200: #e99797,
+        300: #e06d6d,
+        400: #da4e4e,
+        500: #d32f2f,
+        600: #ce2a2a,
+        700: #c82323,
+        800: #c21d1d,
+        900: #b71212,
+        A100: #ffe7e7,
+        A200: #ffb4b4,
+        A400: #ff8181,
+        A700: #ff6868,
+        contrast: (
+                50: #000000,
+                100: #000000,
+                200: #000000,
+                300: #000000,
+                400: #ffffff,
+                500: #ffffff,
+                600: #ffffff,
+                700: #ffffff,
+                800: #ffffff,
+                900: #ffffff,
+                A100: #000000,
+                A200: #000000,
+                A400: #000000,
+                A700: #000000
+        )
+);
+$primary: mat-palette($primary-pallet);
+$secondary: mat-palette($secondary-pallet);
+$warn: mat-palette($mat-red);
+$light-theme: mat-light-theme($primary, $secondary, $warn);
+.light-theme {
+  .package-row {
+    background-color: mat-color($primary, 50);
+  }
+  .page-content {
+    background-color: #ecf0f4;
+  }
+  a {
+    color: mat-color($primary);
+  }
+  &.body-bg {
+    background-color: mat-color($primary, 700);
+  }
+  mat-dialog-container {
+    mat-card-title {
+      background-color: mat-color($primary, 500);
+    }
+  }
+  .pagehead {
+    background-color: mat-color($primary, 50) !important;
+  }
+  .sideLegend {
+    background-color: mat-color($primary, 700) !important;
+  }
+  .topbar,
+  .mini-sidenav {
+    background-color: mat-color($primary, 900) !important;
+    color: #fff !important;
+  }
+  .mini-sidenav,
+  mat-nav-list {
+    .nav-link {
+      color: #fff !important;
+    }
+  }
+  .midbox:before {
+    background-color: mat-color($warn);
+  }
+  .mat-horizontal-content-container {
+    padding: 0 !important;
+  }
+  mat-step-header {
+    .mat-step-label-active {
+      mat-icon {
+        border-color: mat-color($primary);
+        background-color: mat-color($primary);
+        color: #fff !important;
+      }
+    }
+  }
+
+  .customTable {
+    .mat-header-row {
+      background-color: mat-color($primary);
+    }
+  }
+  app-settings {
+    .navigator {
+      mat-list-item {
+        span {
+          &:hover,
+          &.settingNav {
+            border-color: mat-color($primary-pallet, 500);
+          }
+        }
+      }
+      .mat-icon {
+        color: mat-color($primary-pallet, 500);
+      }
+    }
+    .settings-wrap {
+      input,
+      mat-select {
+        background-color: #fff;
+      }
+    }
+  }
+  .section-heading {
+    &:after {
+      background: mat-color($primary-pallet, 500);
+    }
+  }
+  .activity-card {
+    &:before {
+      background-color: mat-color($primary, 500);
+    }
+  }
+  .infoTitle {
+    background-color: mat-color($primary-pallet, 500);
+  }
+  app-ImportSiteModal {
+    .site-note {
+      background-color: mat-color($primary, 50);
+    }
+  }
+  .siteinfo-row {
+    mat-icon {
+      background-color: #fff;
+    }
+  }
+  app-ViewSite {
+    .dashboard-card {
+      .activity-card {
+        background-color: #fff;
+      }
+    }
+  }
+  app-questionCenter {
+    .list,
+    .list-item {
+      border-color: mat-color($primary, 50);
+    }
+    .container {
+      h4 {
+        background-color: mat-color($primary, 800);
+      }
+    }
+  }
+  @include amte-setTheme($light-theme);
+}

@@ -5,8 +5,8 @@ import {FixedNavModel} from 'src/app/models/navigation/fixedNav.model';
 
 @Component({
   selector: 'app-fixed-nav',
-  templateUrl: './fixedNav.component.html',
-  styleUrls: ['./fixedNav.component.scss']
+  templateUrl: 'fixedNav.component.html',
+  styleUrls: ['fixedNav.component.scss']
 })
 export class FixedNavComponent {
   @Input() public navLinks: Array<NavItem>;
