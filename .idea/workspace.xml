@@ -10,7 +10,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe8ce44b-c2fe-4eff-8b83-60d2fb105505" name="Default Changelist" comment="" />
+    <list default="true" id="fe8ce44b-c2fe-4eff-8b83-60d2fb105505" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/@angular/compiler-cli/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@angular/compiler-cli/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597942718566</updated>
       <workItem from="1597942719971" duration="6191000" />
-      <workItem from="1597949291470" duration="9517000" />
+      <workItem from="1597949291470" duration="10580000" />
     </task>
     <servers />
   </component>
