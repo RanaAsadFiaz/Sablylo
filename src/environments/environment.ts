@@ -4,6 +4,7 @@
 
 
 const serverUrl = 'http://192.168.69.4:8000';
+// const serverUrl = 'https://main.safetybeat.com';
 const clientUrl = 'http://localhost:4200/#';
 const clientSignupUrl = 'http://localhost:8000/';
 
